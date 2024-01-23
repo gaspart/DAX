@@ -1,0 +1,24 @@
+Date =
+VAR firstOrderDate = MIN('Internet Sales'[OrderDate])
+VAR lastOrderDate = MAX('Internet Sales'[OrderDate])
+RETURN
+ADDCOLUMNS(
+SELECTCOLUMNS(
+CALENDARAUTO()
+, "Full Date"
+, [Date]
+)
+, "DateKey", VALUE(FORMAT([Full Date], "yyyyMMdd"))
+, "Quarter", CONCATENATE("Q ", QUARTER([Full Date]))
+, "Month", FORMAT([Full Date], "MMMM")
+, "Month Short", FORMAT([Full Date], "MMM")
+, "MonthOrder", MONTH([Full Date])
+, "Week", CONCATENATE("Wk ", WEEKNUM([Full Date]))
+, "Day", FORMAT([Full Date], "dddd")
+, "Day Short", FORMAT([Full Date], "ddd")
+, "Day of Month", DAY([Full Date])
+, "DayOrder", WEEKDAY([Full Date], 2) //First day is Monday
+, "Year Month", FORMAT([Full Date], "yyyy-MM")
+, "IsValidDate", AND([Full Date] >= firstOrderDate, [Full Date] <=
+lastOrderDate)
+)
