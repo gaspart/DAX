@@ -1,0 +1,34 @@
+Expenses YTD =
+CALCULATE(
+	[Expenses],
+	CALCULATETABLE(
+		DATESYTD('Date'[Date], "30/06")
+	)
+)
+
+Expenses YTD =
+CALCULATE(
+	[Expenses],
+	CALCULATETABLE(
+		DATESYTD('Date'[Date]),
+	'Date'[DatesWithTransactions] = TRUE
+	)
+)
+
+Income YTD =
+CALCULATE(
+	[Income],
+	CALCULATETABLE(
+		DATESYTD('Date'[Date]),
+	'Date'[DatesWithTransactions] = TRUE
+	)
+)
+
+Net Income YTD =
+CALCULATE(
+	[Net Income],
+	CALCULATETABLE(
+		DATESYTD('Date'[Date]),
+	'Date'[DatesWithTransactions] = TRUE
+	)
+)

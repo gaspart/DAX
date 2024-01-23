@@ -1,0 +1,54 @@
+GDP = CALCULATE(SUM(Indicators[Valore]), Indicators[Indicator] = "NY.GDP.MKTP.CD")
+Population = CALCULATE(SUM(Indicators[Valore]), Indicators[Indicator] = "SP.POP.TOTL")
+
+GDP Per Capita = DIVIDE([GDP], [Population], 0)
+
+--------------------
+
+GDP Growth =
+
+VAR FirstYear =
+    CALCULATE ( MIN ( Indicators[Year] ), Indicators[Indicator] = "NY.GDP.MKTP.CD" )
+
+VAR LatestYear =
+    CALCULATE ( MAX ( Indicators[Year] ), Indicators[Indicator] = "NY.GDP.MKTP.CD" )
+
+VAR FirstYearGDP =
+    CALCULATE ( [GDP], Indicators[Year] = FirstYear )
+
+VAR LatestYearGDP =
+    CALCULATE ( [GDP], Indicators[Year] = LatestYear )
+
+VAR Diff =
+    LatestYearGDP - FirstYearGDP
+
+RETURN
+DIVIDE ( Diff, FirstYearGDP, 0 )
+
+--------------------
+
+Population Growth = 
+
+VAR FirstYear =
+
+    CALCULATE ( MIN ( Indicators[Year] ), Indicators[Indicator] = "SP.POP.TOTL" )
+
+VAR LatestYear =
+
+    CALCULATE ( MAX ( Indicators[Year] ), Indicators[Indicator] = "SP.POP.TOTL" )
+
+VAR FirstYearPop =
+
+    CALCULATE ( [Population], Indicators[Year] = FirstYear )
+
+VAR LatestYearPop =
+
+    CALCULATE ( [Population], Indicators[Year] = LatestYear )
+
+VAR Diff = 
+
+    LatestYearPop - FirstYearPop
+
+RETURN
+
+ DIVIDE ( Diff, FirstYearPop, 0 )

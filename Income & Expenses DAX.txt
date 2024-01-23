@@ -1,0 +1,14 @@
+Expenses = CALCULATE([Transaction Amount],
+FILTER(transactions, transactions[Type] ="debit"),
+Category[Category] <> "transfer",
+Category[Category] <> "Credit Card Payment"
+)
+
+Income = CALCULATE([Transaction Amount],
+FILTER(transactions, transactions[Type] ="credit"),
+Category[Category] <> "transfer",
+Category[Category] <> "Credit Card Payment"
+)
+
+Net Income = [Income] - [Expenses]
+

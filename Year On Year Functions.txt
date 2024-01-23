@@ -1,0 +1,19 @@
+Expenses PY =
+CALCULATE([Expenses], SAMEPERIODLASTYEAR('Date'[Date])
+)
+
+Income PY =
+CALCULATE([Income], SAMEPERIODLASTYEAR('Date'[Date])
+)
+
+Net Income PY = [Income PY] - [Expenses PY]
+
+Expenses PY YTD =
+CALCULATE([Expenses YTD], SAMEPERIODLASTYEAR('Date'[Date])
+)
+
+Income PY YTD =
+CALCULATE([Income YTD], SAMEPERIODLASTYEAR('Date'[Date])
+)
+
+Net Income PY YTD = [Income PY YTD] - [Expenses PY YTD]

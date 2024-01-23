@@ -1,0 +1,4 @@
+Budget Period = 
+"Budget & Expenses for " &
+ SELECTEDVALUE('Date'[Month]) & " " &
+ SELECTEDVALUE('Date'[Year])

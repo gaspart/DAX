@@ -1,0 +1,9 @@
+YearMonth = FORMAT('Date'[Date], "yyyy-mm")
+
+Monthly Budget = 
+SUMMARIZE('Date', 'Date'[YearMonth])
+
+Monthly Budget = 
+CROSSJOIN(SUMMARIZE('Date', 'Date'[YearMonth]), Budget)
+
+Budget Amt = SUM('Monthly Budget'[Budget])

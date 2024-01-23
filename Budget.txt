@@ -1,0 +1,20 @@
+Category,Budget
+Alcohol & Bars,50
+Auto Insurance,75
+Coffee Shops,15
+Electronics & Software,0
+Entertainment,25
+Fast Food,15
+Gas & Fuel,75
+Groceries,150
+Haircut,30
+Home Improvement,250
+Internet,75
+Mobile Phone,65
+Mortgage & Rent,1100
+Movies & DVDs,0
+Music,11
+Restaurants,150
+Shopping,100
+Television,15
+Utilities,150

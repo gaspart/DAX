@@ -1,0 +1,8 @@
+Budget Amt = SUM('Monthly Budget'[Budget])
+
+
+Budget Amt = 
+CALCULATE(
+	SUM('Monthly Budget'[Budget]),
+	USERELATIONSHIP('Date'[YearMonth], 'Monthly Budget'[YearMonth]
+)
