@@ -1,0 +1,14 @@
+Date = 
+VAR MinYear =YEAR(MIN(sales[date]))
+VAR MaxYear =YEAR(MAX(sales[date]))
+RETURN
+  ADDCOLUMNS(
+    FILTER(
+      CALENDARAUTO(),
+      AND(YEAR([Date]) >= MinYear, YEAR([Date]) <= MaxYear)),
+    "Calendar Year", "CY" & YEAR([Date]),
+    "Month", FORMAT([Date], "mmmm"),
+    "MonthNum", MONTH([Date]),
+    "Weekday", FORMAT([Date], "dddd"),
+    "Year", FORMAT([Date], "yyyy")
+)
