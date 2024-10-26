@@ -1,0 +1,16 @@
+Media settimana corrente = 
+CALCULATE(Peso[Peso Medio],
+    FILTER('Date', 
+      'Date'[Week] = WEEKNUM(today())
+    )
+)
+
+Media settimana precedente = 
+CALCULATE(Peso[Peso Medio],
+    FILTER('Date', 
+        'Date'[Week] = WEEKNUM(today()) - 1
+    )
+)
+
+Variazione settimanale = 
+    [Media settimana corrente] - [Media settimana precedente]
