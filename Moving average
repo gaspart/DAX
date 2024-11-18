@@ -1,0 +1,7 @@
+Daily New Cases 7-Day-Avg = 
+VAR LatestDate = MAX ( 'Date'[Date] )
+RETURN
+AVERAGEX (
+    DATESBETWEEN ( 'Date'[Date], LatestDate - 6, LatestDate ),
+    [Daily New Cases]
+)
