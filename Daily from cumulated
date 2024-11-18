@@ -1,8 +1,8 @@
 Daily New Cases = 
-VAR current_day = [Confirmed Cases]
+VAR current_day = [YourData]
 VAR prev_day = 
   CALCULATE (
-    [Confirmed Cases],
+    [YourData],
     DATEADD ( 'Date'[Date], -1, DAY )
 )
 RETURN
