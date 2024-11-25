@@ -1,0 +1,9 @@
+Daily New Cases = 
+VAR current_day = [Confirmed Cases]
+VAR prev_day = 
+CALCULATE (
+    [Confirmed Cases],
+    DATEADD ( 'Date'[Date], -1, DAY )
+)
+RETURN
+IF ( ISBLANK ( prev_day ), BLANK(), current_day - prev_day )
